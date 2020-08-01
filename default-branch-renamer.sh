@@ -35,7 +35,7 @@ set -eu
 # First, detect if the "git@xyz" protocal is used of "https://"
 URL=$(git config --get remote.origin.url)
 if [[ "$URL" == http* ]]; then
-  [[ "$URL" =~ github\.com/(.+)/(.+)\.git ]]
+  [[ "$URL" =~ github\.com/(.+)/(.+)(\.git)? ]]
   ORG=${BASH_REMATCH[1]}
   REPO=${BASH_REMATCH[2]}
   echo "Detected ORG=$ORG and REPO=$REPO"
@@ -44,7 +44,7 @@ elif [[ $URL == git* ]]; then
   echo "Unsupported. Please developer the regex and open a Pull Requests"
   exit 1
 else
-  echo >&2 "Unrecongized URL $URL"
+  echo >&2 "Unrecognized URL $URL"
   exit 1
 fi
 
