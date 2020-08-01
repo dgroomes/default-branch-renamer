@@ -1,11 +1,11 @@
 # default-branch-renamer
 
-A Bash script to rename the default branch for a Github repository.
+A Bash script to rename the default branch for a GitHub repository.
 
 ---
 
 The `default-branch-renamer.sh` script renames the "master" branch in the git
-repo in the current workin directory to "main". It also sets "main" as the
+repo in the current working directory to "main". It also sets "main" as the
 "default" branch in GitHub by using the GitHub API.
 
 Executes the following:
@@ -19,4 +19,5 @@ Executes the following:
 
 ### Issues
 
-* The regexes are not perfect
+* "git@" protocol is not supported for the remote URL. All that is needed is a 
+  regex. Please, consider opening a Pull Request!

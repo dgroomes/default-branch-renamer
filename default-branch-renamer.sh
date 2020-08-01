@@ -35,9 +35,11 @@ set -eu
 # First, detect if the "git@xyz" protocal is used of "https://"
 URL=$(git config --get remote.origin.url)
 if [[ "$URL" == http* ]]; then
-  [[ "$URL" =~ github\.com/(.+)/(.+)(\.git)? ]]
+  [[ "$URL" =~ github\.com/(.+)/(.+) ]]
   ORG=${BASH_REMATCH[1]}
   REPO=${BASH_REMATCH[2]}
+  # Strip the ".git" suffix if it exists
+  REPO=${REPO/%.git/}
   echo "Detected ORG=$ORG and REPO=$REPO"
 elif [[ $URL == git* ]]; then
   echo "Detected 'git@'-based remote URL"
