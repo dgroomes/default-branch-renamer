@@ -69,3 +69,10 @@ curl --request PATCH \
 
 # Delete 'master' from the remote
 git push origin :master
+
+# Fix up the references
+git branch --unset-upstream
+git branch --set-upstream-to=origin/main
+
+# Test it out (if this doesn't work then something went wrong earlier!)
+git pull
