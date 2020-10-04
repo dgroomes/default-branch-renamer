@@ -20,7 +20,7 @@ if [[ $(git status --porcelain=v1 2>/dev/null | wc -l) -gt 0 ]]; then
 fi
 
 if [[ "x$GITHUB_ACCESS_TOKEN" == "x" ]]; then
-  echo >&2 "Expected GITHUB_API_TOKEN to be set but was not"
+  echo >&2 "Expected GITHUB_ACCESS_TOKEN to be set but was not"
   exit 1
 fi
 
